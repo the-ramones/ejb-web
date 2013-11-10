@@ -25,7 +25,7 @@ public class RssFeedView extends AbstractRssFeedView {
         feed.setTitle("Sample Title");
         feed.setDescription("Sample Description");
         feed.setLink("http://google.com");
-
+        
         super.buildFeedMetadata(model, feed, request);
     }
 
