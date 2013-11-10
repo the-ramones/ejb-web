@@ -31,10 +31,10 @@ public class MainController extends BaseController {
         return mav;
     }
 
-    @RequestMapping(value = "/l", method = RequestMethod.GET)
+    @RequestMapping(value = "/contract", method = RequestMethod.GET)
     public ModelAndView showL(HttpServletRequest request, HttpSession session,
             Locale locale, Model model) {
-        ModelAndView mav = new ModelAndView("l");
+        ModelAndView mav = new ModelAndView("contract");
         return mav;
     }
 }

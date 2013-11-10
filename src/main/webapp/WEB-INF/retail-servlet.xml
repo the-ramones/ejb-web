@@ -115,12 +115,30 @@
         </property> 
         <property name="viewResolvers">
             <util:list>
+                <ref bean="tilesViewResolver" />
                 <ref bean="velocityViewResolver" />
                 <ref bean="internalResourceViewResolver" />
             </util:list>
         </property>
         <property name="ignoreAcceptHeader" value="true" />
         <property name="order" value="10" />
+    </bean>
+    
+    <bean id="tilesConfigurer" 
+          class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+        <property name="definitions">
+            <util:list>
+                <value>/WEB-INF/tiles.xml</value>
+            </util:list>
+        </property>
+    </bean>
+    
+    <bean id="tilesViewResolver" 
+          class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <property name="viewClass" 
+                  value="org.springframework.web.servlet.view.tiles2.TilesView" />
+        <property name="cache" value="false" /> 
+        <property name="order" value="20" />        
     </bean>
 
     <bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
@@ -145,7 +163,7 @@
     </bean>
  
     <bean id="internalResourceViewResolver"
-                 class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.InternalResourceView" />
         <property name="prefix" value="/WEB-INF/jsp/" />
         <property name="suffix" value=".jsp" />
