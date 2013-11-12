@@ -4,6 +4,7 @@ import java.security.Principal;
 import java.util.Locale;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import org.retail.bean.Contact;
 import org.retail.system.RetailConstants;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,10 +32,26 @@ public class MainController extends BaseController {
         return mav;
     }
 
-    @RequestMapping(value = "/contract", method = RequestMethod.GET)
-    public ModelAndView showL(HttpServletRequest request, HttpSession session,
+    @RequestMapping(value = "/contact", method = RequestMethod.GET)
+    public ModelAndView showContact(HttpServletRequest request, HttpSession session,
             Locale locale, Model model) {
-        ModelAndView mav = new ModelAndView("contract");
+        Contact contact = new Contact();
+        ModelAndView mav = new ModelAndView("contact");
+        mav.addObject("command", contact);
+        return mav;
+    }
+
+    @RequestMapping(value = "/main", method = RequestMethod.GET)
+    public ModelAndView showMain(HttpServletRequest request, HttpSession session,
+            Locale locale, Model model) {
+        ModelAndView mav = new ModelAndView("main");
+        return mav;
+    }
+
+    @RequestMapping(value = "/retail", method = RequestMethod.GET)
+    public ModelAndView showRetail(HttpServletRequest request, HttpSession session,
+            Locale locale, Model model) {
+        ModelAndView mav = new ModelAndView("retail");
         return mav;
     }
 }

@@ -57,6 +57,8 @@
     <mvc:resources mapping="/resources/font/**" location="/resources/font/" />
     <mvc:resources mapping="/resources/*" location="/resources/" />
     
+    <mvc:default-servlet-handler />
+    
     <bean id="messageSource" 
           class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         <property name="basenames">
@@ -116,8 +118,8 @@
         <property name="viewResolvers">
             <util:list>
                 <ref bean="tilesViewResolver" />
-                <ref bean="velocityViewResolver" />
-                <ref bean="internalResourceViewResolver" />
+<!--            <ref bean="velocityViewResolver" />
+                <ref bean="internalResourceViewResolver" />-->
             </util:list>
         </property>
         <property name="ignoreAcceptHeader" value="true" />
@@ -161,6 +163,7 @@
         <property name="cache" value="false" />
         <property name="order" value="30" />
     </bean>
+
  
     <bean id="internalResourceViewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver">
